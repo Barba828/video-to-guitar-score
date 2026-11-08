@@ -45,6 +45,8 @@ String numbering is conventional guitar TAB numbering: `1` is the highest-pitche
 
 `metadata.review_mode` is `standard` or `strict`. In standard mode, a measure may remain `machine_passed` when it has no flagged ambiguity; a flagged measure must become `user_confirmed` after review. In strict mode, every measure must be `user_confirmed` before final publication. `decision_id` links to the corresponding entry in `review-decisions.json`; keep corrections and confirmations append-only so later revisions remain auditable.
 
+`machine_passed` means the measure has been visually compared with its cited source region under [transcription-audit.md](transcription-audit.md). It must not be assigned from duration validation, pitch calculation, or Guitar Pro round-trip success alone.
+
 Keep composer/artist, arranger/tab author, and source uploader as separate metadata roles. Preserve the title's source language. `show_chord_diagrams` defaults to `false`; when enabled, deduplicate the top diagram list by normalized chord name while retaining chord names at every musical occurrence. Preserve multiple same-name voicings only when the source explicitly distinguishes them and the user requests both. `instrument` controls the native playback sound and must come from explicit video/notation evidence or a user choice.
 
 ## Required validation

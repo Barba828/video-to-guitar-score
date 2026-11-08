@@ -37,11 +37,12 @@ Require an explicit user confirmation or correction for every measure. Mark each
 
 After any correction:
 
-1. Regenerate and reopen the Guitar Pro file.
-2. Revalidate the changed measure and its immediate neighbors.
-3. Re-run whole-score invariants: measure count/order, total duration, per-measure duration, technique inventory, chord inventory, metadata, and instrument/tuning.
-4. Produce a revision diff listing intended changes and any other changed musical events. Any unexplained change is Blocking.
-5. In strict mode, invalidate confirmations only for measures whose musical content or relevant rendering changed; retain unaffected confirmations with their revision identifiers.
+1. Follow the occurrence-level correction and three-layer regression gates in [transcription-audit.md](transcription-audit.md).
+2. Regenerate and reopen the Guitar Pro file.
+3. Revalidate the changed measure, its immediate neighbors, and every cross-bar relation touching it.
+4. Re-run whole-score invariants: measure count/order, total duration, per-measure duration, technique inventory, chord inventory, metadata, and instrument/tuning.
+5. Produce `revision-diff.json` listing intended changes and every other changed musical event. Any unexplained change is Blocking.
+6. In strict mode, invalidate confirmations only for measures whose musical content or relevant rendering changed; retain unaffected confirmations with their revision identifiers.
 
 ## `review-decisions.json`
 
