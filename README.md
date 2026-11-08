@@ -14,6 +14,24 @@ It treats the displayed TAB pixels as the authority for string and fret choices,
 
 Use this only for videos that visibly display notation or TAB and that you are authorized to process. It is not an audio-only transcription tool.
 
+## How to use it
+
+Give an AI agent an authorized video link or local video file, and ask it to extract the **notation visibly shown in the video** into a playable Guitar Pro score. For example:
+
+> Please extract the guitar TAB visibly displayed in this authorized video and create a validated, playable Guitar Pro score (`.gp` or `.gp5`): https://www.bilibili.com/video/BV1vyLR6REJU
+
+The agent should keep the video TAB as the source of truth for string/fret choices, review any ambiguous measures with you, and deliver an editable Guitar Pro file. When the video contains clear, complete notation, the result can be opened and played back in Guitar Pro, with rendered PDF/image pages and optional MIDI or MusicXML exports.
+
+![Example of a playable Guitar Pro score produced from displayed video TAB](assets/guitar-pro-playable-score-example.png)
+
+### What to provide
+
+- An authorized local video or a link that the agent is permitted to process.
+- A video in which the notation or TAB is sufficiently legible on screen.
+- Your preferred review mode: `standard` (default) or `strict` (you approve every measure).
+
+This skill reads existing, displayed notation; it does not invent a TAB from performance audio or hand movements alone.
+
 ## Install
 
 Install or import this directory using your AI tool's skill, agent, or prompt-extension workflow. Then invoke it for an authorized video with legible displayed guitar notation.
