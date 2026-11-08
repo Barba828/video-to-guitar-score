@@ -1,6 +1,6 @@
 # Video to Guitar Score
 
-A Codex skill for recovering guitar TAB or notation visibly shown in an authorized video and producing a reviewable, editable Guitar Pro score package.
+An AI-agent skill for recovering guitar TAB or notation visibly shown in an authorized video and producing a reviewable, editable Guitar Pro score package.
 
 It treats the displayed TAB pixels as the authority for string and fret choices, keeps per-event visual provenance, and uses full-score validation before a file can be called final.
 
@@ -16,8 +16,8 @@ Use this only for videos that visibly display notation or TAB and that you are a
 
 ## Install
 
-Place this directory in your Codex skills directory, or follow your Codex skill installation workflow. Then invoke it for an authorized video with legible displayed guitar notation.
+Install or import this directory using your AI tool's skill, agent, or prompt-extension workflow. Then invoke it for an authorized video with legible displayed guitar notation.
 
 ## License
 
-No license has been selected yet. All rights reserved unless the repository owner adds a license.
+Released under the [MIT License](LICENSE).
