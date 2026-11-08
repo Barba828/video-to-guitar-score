@@ -1,5 +1,7 @@
 # Video to Guitar Score
 
+[简体中文](README.zh-CN.md) · English
+
 An AI-agent skill for recovering guitar TAB or notation visibly shown in an authorized video and producing a reviewable, editable Guitar Pro score package.
 
 It treats the displayed TAB pixels as the authority for string and fret choices, keeps per-event visual provenance, and uses full-score validation before a file can be called final.
