@@ -1,0 +1,4 @@
+interface:
+  display_name: Video to Guitar Score
+  short_description: Extract displayed TAB from video into reviewable score files
+  default_prompt: Extract the guitar notation visibly shown in my authorized video, validate it against the frames, and export the formats I select.

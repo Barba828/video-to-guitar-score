@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "metadata": {
+    "title": "Validation example",
+    "instrument": "guitar",
+    "tuning_midi": [40, 45, 50, 55, 59, 64],
+    "capo": 0,
+    "tempo_bpm": 120,
+    "review_mode": "standard"
+  },
+  "measures": [
+    {
+      "number": 1,
+      "time_signature": [4, 4],
+      "source": {"page": 1, "system": 1, "timestamp_seconds": 12.4, "bbox": [0.1, 0.2, 0.8, 0.1]},
+      "review": {"status": "machine_passed", "decision_id": null},
+      "events": [
+        {
+          "beat": 0,
+          "duration": [1, 1],
+          "source": {"bbox": [0.21, 0.63, 0.025, 0.14], "method": "visual", "status": "verified"},
+          "notes": [
+            {
+              "string": 1,
+              "fret": 3,
+              "pitch_midi": 67,
+              "source": {"bbox": [0.215, 0.635, 0.012, 0.025], "method": "visual", "status": "verified"}
+            }
+          ],
+          "confidence": 1.0
+        }
+      ]
+    }
+  ]
+}
