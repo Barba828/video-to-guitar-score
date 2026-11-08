@@ -36,6 +36,18 @@ This skill reads existing, displayed notation; it does not invent a TAB from per
 
 Install or import this directory using your AI tool's skill, agent, or prompt-extension workflow. Then invoke it for an authorized video with legible displayed guitar notation.
 
+### Cross-platform runtime
+
+The main workflow supports macOS, Windows, and Linux. Install Python 3.10+ and the Python packages below:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Install **FFmpeg** for video-frame extraction and **Tesseract OCR** for the portable TAB-digit candidate workflow. The agent can run `scripts/recognize_tab_fingering.py` on any supported system; it produces candidates only, so every string/fret value still needs visual verification against the displayed TAB.
+
+On macOS, `scripts/vision_ocr.swift` and `scripts/vision_ocr.m` are optional Apple Vision OCR accelerators. They are not required and are never the only route through the skill. Their JSON output is compatible with the portable `scripts/map_tab_ocr.py` mapping step.
+
 ## License
 
 Released under the [MIT License](LICENSE).

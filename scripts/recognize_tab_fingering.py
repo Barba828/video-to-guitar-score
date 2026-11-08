@@ -16,6 +16,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from PIL import Image
+
 
 STANDARD_TUNING_LOW_TO_HIGH = [40, 45, 50, 55, 59, 64]
 
@@ -112,16 +114,9 @@ def main() -> None:
             output_systems.append({"file": system["system"], "status": "needs_review", "events": []})
             continue
         source_path = args.systems / system["system"]
-        # OpenCV is intentionally not required here; dimensions are available
-        # through the system image header via sips on macOS.
-        size = subprocess.run(
-            ["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(source_path)],
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout
-        width = int(next(line.split(":", 1)[1] for line in size.splitlines() if "pixelWidth" in line))
-        height = int(next(line.split(":", 1)[1] for line in size.splitlines() if "pixelHeight" in line))
+        # Pillow reads image dimensions on macOS, Windows, and Linux.
+        with Image.open(source_path) as image:
+            width, height = image.size
         notes = []
         for strip in system["strips"]:
             string = int(strip["string"])

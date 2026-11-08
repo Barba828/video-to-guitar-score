@@ -1,29 +1,24 @@
 #!/usr/bin/env python3
-"""Map macOS Vision digit candidates onto TAB strings and derive pitches.
+"""Map normalized OCR digit candidates onto TAB strings and derive pitches.
 
-Vision bounding boxes use a bottom-left origin. TAB line locations use image
-pixels from the top. Only digit-only OCR items close to one of the six detected
-TAB lines are accepted; everything else remains outside the fingering ledger.
+OCR bounding boxes use a normalized bottom-left origin. TAB line locations use
+image pixels from the top. Only digit-only OCR items close to one of the six
+detected TAB lines are accepted; everything else remains outside the fingering
+ledger. Apple Vision and the cross-platform OCR entrypoint both use this format.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
-import subprocess
 from pathlib import Path
+
+from PIL import Image
 
 
 def image_size(path: Path) -> tuple[int, int]:
-    output = subprocess.run(
-        ["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(path)],
-        check=True,
-        capture_output=True,
-        text=True,
-    ).stdout
-    width = int(next(line.split(":", 1)[1] for line in output.splitlines() if "pixelWidth" in line))
-    height = int(next(line.split(":", 1)[1] for line in output.splitlines() if "pixelHeight" in line))
-    return width, height
+    with Image.open(path) as image:
+        return image.size
 
 
 def cluster(notes: list[dict], tolerance: float) -> list[dict]:
